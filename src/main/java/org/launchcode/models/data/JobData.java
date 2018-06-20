@@ -101,6 +101,7 @@ public class JobData {
 
         throw new IllegalArgumentException("Cannot get field of type " + type);
     }
+    //maybe add in Jobfield name
 
     public JobFieldData<Employer> getEmployers() {
         return employers;

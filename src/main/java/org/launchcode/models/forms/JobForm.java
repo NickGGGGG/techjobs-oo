@@ -6,6 +6,7 @@ import org.launchcode.models.Location;
 import org.launchcode.models.PositionType;
 import org.launchcode.models.data.JobData;
 
+import javax.naming.Name;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -21,6 +22,13 @@ public class JobForm {
 
     @NotNull
     private int employerId;
+    @NotNull
+    private int locationId;
+    @NotNull
+    private int coreCompetenciesId;
+    @NotNull
+    private int positionTypesId;
+
 
     /*
         TODO #3 - Included other fields needed to create a job,
@@ -42,6 +50,9 @@ public class JobForm {
         */
 
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
@@ -87,6 +98,29 @@ public class JobForm {
 
     public ArrayList<PositionType> getPositionTypes() {
         return positionTypes;
+    }
+    public int getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public int getCoreCompetenciesId() {
+        return coreCompetenciesId;
+    }
+
+    public void setCoreCompetenciesId(int coreCompetenciesId) {
+        this.coreCompetenciesId = coreCompetenciesId;
+    }
+
+    public int getPositionTypesId() {
+        return positionTypesId;
+    }
+
+    public void setPositionTypesId(int positionTypesId) {
+        this.positionTypesId = positionTypesId;
     }
 
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
