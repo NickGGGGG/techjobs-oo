@@ -33,7 +33,7 @@ public class JobController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
-        model.addAttribute("newJob",new JobForm());
+        model.addAttribute("jobForm",new JobForm());
         return "new-job";
     }
 
@@ -43,8 +43,8 @@ public class JobController {
         // TODO #6 - Validate the JobForm model, and if valid, create a
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
+
         if (errors.hasErrors()) {
-            model.addAttribute("errors", errors);
             return "new-job";
         }
         Job newJob = new Job(jobForm.getName(), jobData.getEmployers().findById(jobForm.getEmployerId()),
